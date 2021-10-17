@@ -27,10 +27,10 @@
             
             if(arrNumbers[0] === '-'){
                 arrNumbers.shift()
-                return `- ${arrNumbers.reverse().join('')}`
+                return +(`-${arrNumbers.reverse().join('')}`)
                 
             }
-            return arrNumbers.reverse().join('')
+            return +(arrNumbers.reverse().join(''))
         }
     </script>
 </body>
