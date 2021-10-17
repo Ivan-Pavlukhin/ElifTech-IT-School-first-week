@@ -24,7 +24,7 @@
         alert(getClosestToZero())
         function getClosestToZero() {
             let arr = prompt('Enter some numbers').split(' ')
-            let sortArr = [...arr].map(item => Math.abs(item)).sort()
+            let sortArr = [...arr].map(item => Math.abs(item)).sort((a, b) => a - b)
             let res = arr.filter(item => {
                 if(Math.abs(item) === sortArr[0]){
                     return item
