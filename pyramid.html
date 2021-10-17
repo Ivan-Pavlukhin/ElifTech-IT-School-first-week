@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="header">
+        <a href="./">Home</a>
+        <a href="./pyramid.html">Pyramid</a>
+        <a href="./guessing-game.html">Guessing game</a>
+        <a href="./is-bigger.html">isBigger</a>
+        <a href="./is-smaller.html">isSmaller</a>
+        <a href="./get-min.html">getMin</a>
+        <a href="./is-prime.html">isPrime</a>
+        <a href="./get-closest-to-zero.html">getClosestToZero</a>
+        <a href="./reverse-number.html">reverseNumber</a>
+    </div>
+    <h1>Если нужно разделить числа между собой используй пробел </h1>
+    <script type="text/javascript">
+
+        function pyramid(){
+            let flor = prompt("please enter number bigger 0 and less 21");
+        const block = '[~]'
+        const space = '   '
+        if( !+flor || flor < 0 || flor > 20){
+            console.error("Wrong!")
+            return
+        }
+        
+       
+        createPyramid(flor)
+
+        function createPyramid(flor) {
+            let string = ''
+            for(let i = 1; i <= flor; ++i){
+                string = string + space.repeat(flor - i) + block.repeat(i) + block.repeat(i - 1) + space.repeat(flor - i) + '\n'
+            }
+            console.log(string)
+        }
+        }
+        
+        pyramid()
+        
+    </script>
+</body>
+</html>

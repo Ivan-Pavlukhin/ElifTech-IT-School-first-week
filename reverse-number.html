@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="header">
+        <a href="./">Home</a>
+        <a href="./pyramid.html">Pyramid</a>
+        <a href="./guessing-game.html">Guessing game</a>
+        <a href="./is-bigger.html">isBigger</a>
+        <a href="./is-smaller.html">isSmaller</a>
+        <a href="./get-min.html">getMin</a>
+        <a href="./is-prime.html">isPrime</a>
+        <a href="./get-closest-to-zero.html">getClosestToZero</a>
+        <a href="./reverse-number.html">reverseNumber</a>
+    </div>
+    <h1>Если нужно разделить числа между собой используй пробел </h1>
+    <script>
+        alert(reverseNumber())
+        function reverseNumber(){
+            let arrNumbers = prompt('Enter number').split('')
+            
+            if(arrNumbers[0] === '-'){
+                arrNumbers.shift()
+                return `- ${arrNumbers.reverse().join('')}`
+                
+            }
+            return arrNumbers.reverse().join('')
+        }
+    </script>
+</body>
+</html>

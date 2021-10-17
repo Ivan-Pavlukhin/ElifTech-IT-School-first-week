@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="header">
+        <a href="./">Home</a>
+        <a href="./pyramid.html">Pyramid</a>
+        <a href="./guessing-game.html">Guessing game</a>
+        <a href="./is-bigger.html">isBigger</a>
+        <a href="./is-smaller.html">isSmaller</a>
+        <a href="./get-min.html">getMin</a>
+        <a href="./is-prime.html">isPrime</a>
+        <a href="./get-closest-to-zero.html">getClosestToZero</a>
+        <a href="./reverse-number.html">reverseNumber</a>
+    </div>
+    <h1>Если нужно разделить числа между собой используй пробел </h1>
+    <script>
+        guessingGame()
+
+        function guessingGame(){
+            let isPlay = confirm("Do you want play?")
+            let totalPrize = 0
+            let num = 5
+            let lay = 1
+
+            if(!isPlay){
+                alert("You did not become a millionaire")
+                return
+            }
+
+            startGame()
+
+
+            function startGame(){
+                const answer = getAnswer(num);
+
+                let possiblePrize = 0
+                let userAnswer = ''
+
+                if(totalPrize){
+                    num = num * 2
+                    lay = lay * 3
+                }
+
+                console.log(answer);
+
+                for(let i = 3; i > 0; --i){
+                    switch (i){
+                        case 3:
+                            possiblePrize = 10 * lay;
+                            break;
+                        case 2: 
+                            possiblePrize = 5 * lay;
+                            break;
+                        case 1:
+                            possiblePrize = 2 * lay;
+                            break;
+                        }
+                
+                    userAnswer = prompt(`Enter number from 0 to ${num}\n Attempts left ${i}\n Total prize ${totalPrize}$\n Possible prize on current attempt: ${possiblePrize}$` )
+                    
+                    if(isNaN(+userAnswer) || userAnswer < 0 || userAnswer > num){
+                        console.error("Wrong!")
+                    }
+                    
+                    if(answer === userAnswer){
+                        totalPrize = totalPrize + possiblePrize
+                        let isPlay = confirm(`Your prize is ${totalPrize}$. Do you want play again` )
+
+                        if(isPlay){
+                            startGame()
+                        }
+                        return
+                    }
+                }   
+            }
+            
+            gameOver()
+
+            function getAnswer(num = 5){
+                return `${Math.floor(Math.random() * (num + 1))}`
+            }
+
+            function gameOver(){
+                console.log(`Thank you for a game. Your prize is: ${totalPrize}$`)
+            }
+        }
+    </script>
+</body>
+</html>
